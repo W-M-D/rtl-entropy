@@ -38,7 +38,6 @@
 #include <openssl/sha.h>
 #include <openssl/aes.h>
 
-
 #if defined(__APPLE__) || (__FreeBSD__)
 #include <sys/time.h>
 #else
@@ -46,7 +45,7 @@
 #include <sys/capability.h>
 #include <sys/prctl.h>
 #endif
-
+#include "rngd_linux.h"
 #include "rtl-sdr.h"
 #include "fips.h"
 #include "util.h"
