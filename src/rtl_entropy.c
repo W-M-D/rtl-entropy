@@ -60,6 +60,7 @@ static fips_ctx_t fipsctx;		/* Context for the FIPS tests */
 uint32_t dev_index = 0;
 uint32_t samp_rate = DEFAULT_SAMPLE_RATE;
 uint32_t frequency = DEFAULT_FREQUENCY;
+int add_to_kernel = 0;
 int opt = 0;
 int redirect_output = 0;
 char *output_name = NULL;
@@ -139,6 +140,7 @@ void parse_args(int argc, char ** argv)
     {"daemonize",  0, NULL, 'b' },
     {"config_file",  1, NULL, 'c' },
     {"device_idx",  1, NULL, 'd' },
+    {"add_to_kernel", 1,NULL,'k' },
     {"encrypt",  0, NULL, 'e' },
     {"frequency", 1, NULL, 'f' },
     {"group", 1, NULL, 'g' },
@@ -182,6 +184,10 @@ void parse_args(int argc, char ** argv)
         gflags_encryption = 1;
         break;
         
+      case 'k':
+	add_to_kernel = 1;
+	break;
+	
       case 'f':
         frequency = (uint32_t)atofs(optarg);
         break;
